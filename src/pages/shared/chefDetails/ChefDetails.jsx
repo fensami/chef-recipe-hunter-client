@@ -1,27 +1,33 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+// import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 
-const ChefDetails = () => {
+const ChefDetails = ({data}) => {
+    const {chef_picture, name,id} = data;
+    
 
     return (
-        <Row xs={1} md={2} className="g-4">
-            {Array.from({ length: 1 }).map((_, idx) => (
-                <Col key={idx}>
-                    <Card>
-                        <Card.Img variant="top" src="holder.js/100px160" />
-                        <Card.Body>
-                            <Card.Title></Card.Title>
+        <Container>
+            <CardGroup>
+                <Card>
+                    <Card.Img variant="top" src={chef_picture} />
+                    <Card.Body>
+                        <Card.Title>{name}{id}</Card.Title>
+                        <Card.Text>
+                            This is a wider card with supporting text below as a natural lead-in
+                            to additional content. This content is a little bit longer.
+                        </Card.Text>
+                    </Card.Body>
+                    {/* <Card.Footer>
+                        <small className="text-muted">Last updated 3 mins ago</small>
+                    </Card.Footer> */}
+                    <p><Link to= {`/bestDishes/${id}`}>show all data</Link></p>
+                </Card>
+                
 
-                            <Card.Text>
-                                This is a longer card with supporting text below as a natural
-                                lead-in to additional content. This content is a little bit
-                                longer.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            ))}
-        </Row>
+            </CardGroup>
+        </Container>
     );
 };
 
