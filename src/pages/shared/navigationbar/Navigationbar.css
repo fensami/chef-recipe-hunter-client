@@ -1,0 +1,8 @@
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(39, 215, 115);
+}
+.navigation a{
+    color: black;
+}
