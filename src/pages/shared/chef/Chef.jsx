@@ -1,13 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+// import { Container } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import ChefDetails from '../chefDetails/ChefDetails';
+// import ChefDetails from '../chefDetails/ChefDetails';
 
-const Chef = ({data}) => {
-    const {id, name,description}= data;
+
+const Chef = () => {
+    const chefData = useLoaderData()
+    // const [chef , setChef] = useState([])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/chefdata')
+    //     .then(res => res.json())
+    //     .then(data => setChef(data))
+    // },[])
+
+
+    console.log(chefData);
+    // const {id, name} = chefData;
     return (
-        <div>
-            <p>{name}</p>
-            <p>{description}</p>
-            <Link to={`/bestDishes/${id}`}>Details</Link>
+        <div className='border text-center'>
+            {/* {
+                chef.map(data => <ChefDetails
+                key={data.id}
+                data= {data}
+                ></ChefDetails>)
+
+            } */}
+
         </div>
     );
 };

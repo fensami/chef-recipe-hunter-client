@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import Foodians from '../foodians/Foodians';
+import { useLoaderData } from 'react-router-dom';
+import Chef from '../../shared/chef/Chef';
+import ChefDetails from '../../shared/chefDetails/ChefDetails';
 
 const Home = () => {
-    const [foodians, setFoodians] = useState([])
+    const chef = useLoaderData()
+    const chefData = useLoaderData()
+    console.log(chefData);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/foodian')
-        .then(res => res.json())
-        .then(data => setFoodians(data))
-        .catch(error => {console.log(error)})
-    },[])
     return (
         <div className='w-50 mx-auto'>
             {
-                foodians.map(foodian => <Foodians
-                key={foodian.id}
-                foodian= {foodian}
-                ></Foodians>)
+                chef.map((data,index) => <ChefDetails
+                key={index}
+                data= {data}
+                ></ChefDetails>)
+
             }
         </div>
     );

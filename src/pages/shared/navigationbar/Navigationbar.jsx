@@ -25,7 +25,7 @@ const Navigationbar = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/chefdetails">Chef</Nav.Link>
+              <Nav.Link >Chef</Nav.Link>
               <Nav.Link eventKey={2} href="/">
                 Bangladeshi Recepe
               </Nav.Link>

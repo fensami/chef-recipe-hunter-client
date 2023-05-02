@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
-import Chef from '../chef/Chef';
+import React from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 
 const ChefDetails = () => {
-    // const id = useParams();
-
-    // const chefdata = useLoaderData();
-    // console.log(chefdata);
-    // const [chefdata , setChefdata] = useState([]);
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/chefdata`)
-    //     .then(res => res.json())
-    //     .then(data => setChefdata(data))
-
-    // },[])
-    const chefdata = useLoaderData()
 
     return (
-        <div>
-            <h2>Chef details comming soon.. :</h2>
-            {
-                chefdata.map(data => <Chef
-                key={data.id}
-                data={data}
-                ></Chef>)
-            }
-        </div>
+        <Row xs={1} md={2} className="g-4">
+            {Array.from({ length: 1 }).map((_, idx) => (
+                <Col key={idx}>
+                    <Card>
+                        <Card.Img variant="top" src="holder.js/100px160" />
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+
+                            <Card.Text>
+                                This is a longer card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit
+                                longer.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            ))}
+        </Row>
     );
 };
 

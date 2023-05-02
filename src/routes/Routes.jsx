@@ -4,8 +4,9 @@ import Home from "../pages/home/home/Home";
 import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
 import NotFound404 from "../pages/shared/notFoundPages/NotFound404";
-import ChefDetails from "../pages/shared/chefDetails/ChefDetails";
+// import ChefDetails from "../pages/shared/chefDetails/ChefDetails";
 import BestDishes from "../pages/shared/BestDishes/BestDishes";
+import Chef from "../pages/shared/chef/Chef";
 
 const router = createBrowserRouter([
     {
@@ -14,7 +15,15 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/chefdata')
+                
+            },
+            {
+                path: 'chef',
+                element:<Chef></Chef>,
+                // loader: () => fetch('http://localhost:5000/chefdata')
+
             },
             {
                 path: 'login',
@@ -24,13 +33,7 @@ const router = createBrowserRouter([
                 path: 'signup',
                 element: <Signup></Signup>
             },
-            {
-                path: 'chefdetails',
-                element: <ChefDetails></ChefDetails>,
-                loader: () => fetch('http://localhost:5000/chefdata')
-                // loader: ({params}) => {`http://localhost:5000/chefdata/${params.id}`}
-
-            },
+            
             {
                 path: 'bestDishes/:bestDishesId',
                 element: <BestDishes></BestDishes>,
