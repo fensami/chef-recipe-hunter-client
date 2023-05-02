@@ -8,7 +8,7 @@ const Header = () => {
             {/* <h1>FOoDian</h1> */}
             <div>
                 <Link to='/login' className='fs-3 text-black fw-bold text-decoration-none'>LogIn</Link>
-                <Link className='text-decoration-none fs-3 text-black mx-3 fw-bold'>SignUp</Link>
+                <Link to='/signup' className='text-decoration-none fs-3 text-black mx-3 fw-bold'>SignUp</Link>
             </div>
         </div>
     );
