@@ -3,6 +3,7 @@ import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Button } from 'react-bootstrap';
+import { FaBeer, FaUserCircle } from 'react-icons/fa';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogout = () => {
@@ -15,12 +16,21 @@ const Header = () => {
             <img src={logo} alt="" />
        
             <div>
-                
+           <article className='d-flex align-items-center'>
+           <div>
+            {
+                                user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                            }
+            </div>
+                <div>
                 {user ?
-                    <Button onClick={handleLogout} variant="secondary">LogOut</Button> :
-                    <Link to={'/login'}><Button variant="secondary">Login</Button></Link>
+                    <Button className='ms-3 fw-bold text-white' onClick={handleLogout} variant="primary">LogOut</Button> :
+                    <Link to={'/login'}><Button variant="primary">Login</Button></Link>
                 }
-                <Link to='/signup' className='text-decoration-none fs-3 text-black mx-3 fw-bold'>SignUp</Link>
+                </div>
+                <Button className='ms-2'><Link to='/signup' className='text-decoration-none text-white mx-3 fw-bold'>SignUp</Link></Button>
+           </article>
+                
             </div>
         </div>
     );
