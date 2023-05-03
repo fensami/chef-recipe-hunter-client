@@ -5,6 +5,9 @@ import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
 import NotFound404 from "../pages/shared/notFoundPages/NotFound404";
 import Chef from '../pages/shared/chef/Chef'
+import PrivateRoute from "./PrivateRoute";
+import Tarms from "../pages/shared/tarms/Tarms";
+import Blogs from "../pages/shared/blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -19,9 +22,13 @@ const router = createBrowserRouter([
             },
             {
                 path: 'chef/:chefId',
-                element: <Chef></Chef>,
+                element: <PrivateRoute><Chef></Chef></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/chefdata/${params.chefId}`)
 
+            },
+            {
+             path: 'tarms',
+             element: <Tarms></Tarms>
             },
             {
                 path: 'login',
@@ -30,6 +37,11 @@ const router = createBrowserRouter([
             {
                 path: 'signup',
                 element: <Signup></Signup>
+            },
+            {
+                path: 'blogs',
+                element: <Blogs></Blogs>
+
             },
             
             

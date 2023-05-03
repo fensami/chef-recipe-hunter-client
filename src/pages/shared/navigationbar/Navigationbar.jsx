@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Navigationbar.css'
 import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 const Navigationbar = () => {
@@ -25,7 +24,7 @@ const Navigationbar = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link >Chef</Nav.Link>
+              <Nav.Link href='/' >Chef</Nav.Link>
               <Nav.Link eventKey={2} href="/">
                 Bangladeshi Recepe
               </Nav.Link>

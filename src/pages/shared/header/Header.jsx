@@ -13,12 +13,9 @@ const Header = () => {
     return (
         <div className='px-5 bg-opacity-25 bg-secondary bg-gradient d-flex justify-content-between align-items-center '>
             <img src={logo} alt="" />
-            {/* <h1>FOoDian</h1> */}
+       
             <div>
-                {user && <p></p>}
-                {/* {
-                    user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                } */}
+                
                 {user ?
                     <Button onClick={handleLogout} variant="secondary">LogOut</Button> :
                     <Link to={'/login'}><Button variant="secondary">Login</Button></Link>
