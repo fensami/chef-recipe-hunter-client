@@ -62,9 +62,6 @@ const Signup = () => {
                     <Form.Label className='fw-bold'>Password</Form.Label>
                     <Form.Control type="password" name='password'  placeholder="Password" required />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Show Password" />
-                </Form.Group> */}
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check onClick={handleAccepted}
                         type="checkbox"
