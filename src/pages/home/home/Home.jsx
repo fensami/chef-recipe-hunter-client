@@ -4,12 +4,14 @@ import ChefDetails from '../../shared/chefDetails/ChefDetails';
 import Slider from '../../shared/slider/Slider';
 import RandomFoods from '../../shared/randomFoods/RandomFoods';
 import SpecialFoods from '../../specialFoods/SpecialFoods';
+import Banner from '../banner/Banner';
+import { Container } from 'react-bootstrap';
 
 const Home = () => {
     const chef = useLoaderData()
     const [randomfoods, setrandomfoods] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/randomfoods')
+        fetch('https://foodian-server-fensami.vercel.app/randomfoods')
             .then(res => res.json())
             .then(data => setrandomfoods(data))
     }, [])
@@ -17,8 +19,9 @@ const Home = () => {
 
     return (
         <div>
-            <div className='w-75 mx-auto mt-2 h-50'>
-                <Slider></Slider>
+            <div className='w-75 mx-auto mt-2'>
+                <Banner></Banner>
+               
 
 
             </div>
@@ -32,6 +35,9 @@ const Home = () => {
 
                 }
             </div>
+            <Container className='mt-3'>
+            <Slider></Slider>
+            </Container>
 
             <div className='border w-75 mx-auto mt-5 mb-4 rounded'>
                 <h1 className='text-center mt-4 text-primary'>Random FOods</h1>

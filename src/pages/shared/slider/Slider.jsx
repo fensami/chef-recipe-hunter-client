@@ -7,7 +7,8 @@ import slider3 from '../../../../public/images/slider3.jpg'
 const Slider = () => {
     
     return (
-        <Carousel fade>
+       <div>
+         <Carousel fade>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -15,7 +16,7 @@ const Slider = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Welcome To FOodian Recepes</h3>
+          <h3>FOodian Recepes</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -46,6 +47,7 @@ const Slider = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+       </div>
     );
 };
 

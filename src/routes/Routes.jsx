@@ -17,13 +17,13 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/chefdata')
+                loader: () => fetch('https://foodian-server-fensami.vercel.app/chefdata')
                 
             },
             {
                 path: 'chef/:chefId',
                 element: <PrivateRoute><Chef></Chef></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/chefdata/${params.chefId}`)
+                loader: ({params}) => fetch(`https://foodian-server-fensami.vercel.app/chefdata/${params.chefId}`)
 
             },
             {
