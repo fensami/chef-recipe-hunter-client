@@ -8,19 +8,20 @@ const Chef = () => {
     // console.log(chef);
     const chef = useLoaderData()
     // console.log(chef);
-    const { id, bestDishes,chef_picture , name} = chef
+    const { chef_picture,bestDishes, name,likes,id,year_of_experience,numbers_of_recipes,description} = chef
     return (
         <div>
             <Container>
             <Card className="bg-dark text-white mt-3">
                 <Card.Img src={chef_picture} alt="Card image" />
                 <Card.ImgOverlay>
-                    <Card.Title><p>{name}</p></Card.Title>
-                    {/* <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This content is a little bit longer.
-                    </Card.Text> */}
+                   <div className='w-50'>
+                   <h2>{name}</h2>
+                    <h5><small>{description}</small></h5>
+                    <h6><small>Likes : {likes}</small></h6>
+                    <p className='fw-bold'>Years of experience : {year_of_experience} </p>
                     <Card.Text>Last updated 3 mins ago</Card.Text>
+                   </div>
                 </Card.ImgOverlay>
             </Card>
         </Container>

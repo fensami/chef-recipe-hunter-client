@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/home/home/Home";
-import Login from "../pages/login/Login";
-import Signup from "../pages/signup/Signup";
+import Login from "../pages/login/login/Login";
+import Signup from "../pages/login/signup/Signup";
 import NotFound404 from "../pages/shared/notFoundPages/NotFound404";
 import Chef from '../pages/shared/chef/Chef'
 import PrivateRoute from "./PrivateRoute";

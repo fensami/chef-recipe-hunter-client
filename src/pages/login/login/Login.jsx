@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
-    const from = location.state?.from?.pathname || '/chefdata/0'
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
