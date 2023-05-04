@@ -2,11 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-// import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import app from '../../../firebase/firebase.config';
+
 
 const Signup = () => {
-    const {createUser, googleAuth} = useContext(AuthContext)
+    const {createUser} = useContext(AuthContext)
     
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState('')
@@ -21,9 +20,7 @@ const Signup = () => {
         const name = form.name.value;
         const email = form.email.value;
         const photo = form.photo.value;
-
         const password = form.password.value;
-        console.log(name, email , password,photo);
         if(password.length <6){
             setError('Your password must be 6 characters')
             return
@@ -71,11 +68,7 @@ const Signup = () => {
                 <Button disabled={!accepted} variant="primary" type="submit">
                     Signup
                 </Button>
-                <p className='text-danger'>{error}</p>
-               
-                {/* <Button onClick={handleGoogleSignIn}>GOogle Login</Button> */}
-               
-               
+                <p className='text-danger'>{error}</p>  
             </Form>
 
             <Form.Text className="text-secondary">

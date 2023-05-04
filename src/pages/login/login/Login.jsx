@@ -14,21 +14,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
         setError('')
-        // if(password === password){
-        //     setError('Your email and password not matched')
-        //     return
-        // }
 
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
                 navigate(from, { replace: true })
             })
-            .catch(error => { console.log(error);
-            setError(error.message) })
+            .catch(error => {setError(error.message) })
 
     }
 

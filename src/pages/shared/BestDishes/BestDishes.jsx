@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card, CardGroup, Container } from 'react-bootstrap';
 import { FaHeart } from 'react-icons/fa';
-import './BestDishes.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,7 +10,7 @@ const handleaddtoast = () => {
 
 const BestDishes = ({ dt }) => {
 
-  const { id, ingradience, name, cooking, rating, food_image, bangladeshiRecipeName } = dt;
+  const { ingradience, name, cooking, rating, food_image, bangladeshiRecipeName } = dt;
   return (
     <Container>
       <CardGroup className='w-75 mx-auto'>

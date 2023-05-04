@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card, CardGroup, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 
 const ChefDetails = ({data}) => {
     const {chef_picture, name,likes,id,year_of_experience,numbers_of_recipes} = data;
@@ -9,7 +8,7 @@ const ChefDetails = ({data}) => {
 
     return (
         <Container className='mt-3'>
-            
+
             <CardGroup>
                 <Card>
                     <Card.Img variant="top" src={chef_picture} />

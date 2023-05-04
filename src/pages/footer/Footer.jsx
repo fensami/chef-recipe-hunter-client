@@ -1,14 +1,13 @@
 import React from 'react';
-import { Col, Container, Nav, Row } from 'react-bootstrap';
+import { Col, Nav, Row } from 'react-bootstrap';
 import img from '../../../public/images/recent.jpg'
-
 const Footer = () => {
     return (
 
 
         <Row className=" bg-black text-light px-5 pt-3 rounded text-center">
-            <Col cl>
-                {/* <img src={rsz_two} alt="" /> */}
+            <Col>
+
                 <h1>FOodian</h1>
                 <p>You Might Be Rest Assured That We Have<br />A Strong Reputation About Our Chefs<br />Corner. We Can Provide The Best<br />Service All Over The Country. <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ipsam exercitationem nisi placeat rerum dolorum labore ut enim, repellendus perferendis? Ducimus cumque repudut alibusdam et voluptates cons cum ab, tempora .</span> </p>
             </Col>

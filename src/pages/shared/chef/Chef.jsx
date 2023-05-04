@@ -1,13 +1,12 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import BestDishes from '../BestDishes/BestDishes';
 
 const Chef = () => {
-    // const chef = useLoaderData()
-    // console.log(chef);
+
     const chef = useLoaderData()
-    // console.log(chef);
+
     const { chef_picture, bestDishes, name, likes, id, year_of_experience, numbers_of_recipes, description } = chef
     return (
         <div>
