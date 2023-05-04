@@ -9,6 +9,7 @@ const ChefDetails = ({data}) => {
 
     return (
         <Container className='mt-3'>
+            
             <CardGroup>
                 <Card>
                     <Card.Img variant="top" src={chef_picture} />
@@ -23,9 +24,6 @@ const ChefDetails = ({data}) => {
                             to additional content. This content is a little bit longer.
                         </Card.Text>
                     </Card.Body>
-                    {/* <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer> */}
                     <Button variant="primary" className='w-25 mx-auto mb-2'><Link to= {`/chef/${id}`} className='text-decoration-none text-white fw-bold'>View Recipes</Link></Button>
                 </Card>
                 

@@ -3,14 +3,15 @@ import { useLoaderData } from 'react-router-dom';
 // import Chef from '../../shared/chef/Chef';
 import ChefDetails from '../../shared/chefDetails/ChefDetails';
 import Slider from '../../shared/slider/Slider';
+import RandomFoods from '../../shared/randomFoods/RandomFoods';
 
 const Home = () => {
     const chef = useLoaderData()
-    const [slider, setSlider] = useState([])
+    const [randomfoods, setrandomfoods] = useState([])
     useEffect(()=> {
-        fetch('http://localhost:5000/foodian')
+        fetch('http://localhost:5000/randomfoods')
         .then(res => res.json())
-        .then(data => setSlider(data))
+        .then(data => setrandomfoods(data))
     },[])
    
 
@@ -18,12 +19,6 @@ const Home = () => {
         <div>
             <div className='w-75 mx-auto mt-2 h-50'>
                 <Slider></Slider>
-                {
-                    // slider.map((dt, index) => <Slider
-                    // key={index}
-                    // dt= {dt}
-                    // ></Slider>)
-                }
 
 
             </div>
@@ -36,6 +31,17 @@ const Home = () => {
 
             }
             </div>
+
+             <div className='border w-75 mx-auto mt-5 mb-4 rounded'>
+                <h1 className='text-center mt-4'>Random FOods</h1>
+             {
+                    randomfoods?.map((randomfood , index) => <RandomFoods
+                    key={index}
+                    randomfood={randomfood}
+                    ></RandomFoods>)
+                }
+             </div>
+            
         </div>
     );
 };
