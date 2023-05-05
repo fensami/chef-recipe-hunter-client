@@ -78,9 +78,9 @@ const Login = () => {
                 </Button>
                 <p className='text-danger'>{error}</p>
             </Form>
-            <div>
-            <Button onClick={handleSignInWithGOogle}>SignIn With Google</Button>
-            <Button onClick={handleSignInWithGithub}>SignIn With Google</Button>
+            <div className='d-flex gap-3'>
+            <Button onClick={handleSignInWithGOogle}><small>Login With Google</small></Button>
+            <Button onClick={handleSignInWithGithub}><small>Login With Github</small></Button>
             </div>
             <Form.Text className="text-secondary">
                 <span>Don't have an account? </span>
