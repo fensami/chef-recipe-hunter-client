@@ -1,13 +1,35 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
+import app from '../../../firebase/firebase.config';
+// import app from '../../../firebase/firebase.config';
 
 const Login = () => {
+    const auth = getAuth(app)
+    const provider = new GoogleAuthProvider()
+
     const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
+
+    const handleSignInWithGOogle = () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => { 'error', console.log(error.message); })
+    }
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            if(currentUser){
+                navigate('/');
+            } 
+        })
+    },[])
 
     const handleLogin = event => {
         event.preventDefault();
@@ -19,9 +41,10 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser);
                 navigate(from, { replace: true })
             })
-            .catch(error => {setError(error.message) })
+            .catch(error => { setError(error.message) })
 
     }
 
@@ -46,6 +69,7 @@ const Login = () => {
                 </Button>
                 <p className='text-danger'>{error}</p>
             </Form>
+            <Button onClick={handleSignInWithGOogle}>SignIn With Google</Button>
             <Form.Text className="text-secondary">
                 <span>Don't have an account? </span>
                 <Link to={'/signup'}>SignUp</Link>
