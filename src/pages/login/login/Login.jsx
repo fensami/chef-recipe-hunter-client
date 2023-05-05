@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
 import app from '../../../firebase/firebase.config';
 // import app from '../../../firebase/firebase.config';
 
 const Login = () => {
     const auth = getAuth(app)
-    const provider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const gihubProvider = new GithubAuthProvider();
 
     const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext)
@@ -16,12 +17,20 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const handleSignInWithGOogle = () => {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
             })
-            .catch(error => { 'error', console.log(error.message); })
+            .catch(error => { 'error', console.log(error.message) })
+    }
+    const handleSignInWithGithub = () => {
+        signInWithPopup(auth, gihubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {"error", console.log(error.message)})
     }
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
@@ -69,7 +78,10 @@ const Login = () => {
                 </Button>
                 <p className='text-danger'>{error}</p>
             </Form>
+            <div>
             <Button onClick={handleSignInWithGOogle}>SignIn With Google</Button>
+            <Button onClick={handleSignInWithGithub}>SignIn With Google</Button>
+            </div>
             <Form.Text className="text-secondary">
                 <span>Don't have an account? </span>
                 <Link to={'/signup'}>SignUp</Link>
