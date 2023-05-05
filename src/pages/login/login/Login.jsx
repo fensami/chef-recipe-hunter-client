@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
 import app from '../../../firebase/firebase.config';
-// import app from '../../../firebase/firebase.config';
 
 const Login = () => {
     const auth = getAuth(app)
@@ -14,7 +13,7 @@ const Login = () => {
     const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/chef/1'
 
     const handleSignInWithGOogle = () => {
         signInWithPopup(auth, googleProvider)
@@ -29,13 +28,15 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, { replace: true })
         })
         .catch(error => {"error", console.log(error.message)})
     }
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             if(currentUser){
-                navigate('/');
+                navigate(from, { replace: true })
+                // navigate('/');
             } 
         })
     },[])

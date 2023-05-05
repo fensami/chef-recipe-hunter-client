@@ -35,6 +35,7 @@ const Signup = () => {
     }
     const handleAccepted = event => {
         setAccepted(event.target.checked);
+        
     }
 
     return (
